@@ -8,6 +8,16 @@ const downloads = [
     netdisk: 'https://workdrive.zohopublic.com.cn/external/4278f7d8b1ada4f99e6642b2c5e19a4e31adf210b5645005d2026d3d2953a91b/download',
     direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwcf4ae18dfbb37428199784e70efae6d53?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwz-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
   }
+  
+  {
+    id: 'modpack-002',
+    name: '小橘の身存优化整合包',
+    size: '35.3 KB (36,201 字节)',
+    category: 'modpack',
+    netdisk: 'https://workdrive.zohopublic.com.cn/external/e2093952057131a6c8c6ae1699477278ba80a2c11dd7477704e2f9a3d794fb75/download',
+    direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwc3c0c27b8fff04ff58869f7dacac83222?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwA-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
+  }
+  
 ];
 
 // 初始化文件列表
