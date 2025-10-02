@@ -10,8 +10,8 @@ const downloads = [
   },
   {
     id: 'modpack-002',
-    name: '小橘の海豹偷狗队枪械整合包',
-    size: '112 MB (117,598,962 字节)',
+    name: '小橘の生存优化械整合包',
+    size: '36.0 KB (36,864 字节)',
     category: 'modpack',
     netdisk: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwcf4ae18dfbb37428199784e70efae6d53?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwz-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D',
     direct: 'https://workdrive.zohopublic.com.cn/public/workdrive-public/download/f0nwcf4ae18dfbb37428199784e70efae6d53'
