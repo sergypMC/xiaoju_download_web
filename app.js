@@ -5,8 +5,8 @@ const downloads = [
     name: '小橘の海豹偷狗队枪械整合包',
     size: '112 MB (117,598,962 字节)',
     category: 'modpack',
-    netdisk: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwcf4ae18dfbb37428199784e70efae6d53?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwz-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D',
-    direct: 'https://workdrive.zohopublic.com.cn/public/workdrive-public/download/f0nwcf4ae18dfbb37428199784e70efae6d53'
+    netdisk: 'https://workdrive.zohopublic.com.cn/external/4278f7d8b1ada4f99e6642b2c5e19a4e31adf210b5645005d2026d3d2953a91b/download',
+    direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwcf4ae18dfbb37428199784e70efae6d53?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwz-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
   }
 ];
 
