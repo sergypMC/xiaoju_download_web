@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小橘の下载中心</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📦 我的资源库</h1>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜索资源...">
+      <label class="search-mode">
+        <input type="checkbox" id="searchMode">
+        <span>编号搜索</span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <div class="file-category">
+      <h2>Minecraft整合包</h2>
+      <div class="file-list" id="modpackList"></div>
+    </div>
+
+    <div class="file-category">
+      <h2>🔧 常用工具</h2>
+      <div class="file-list" id="toolsList"></div>
+    </div>
+
+    <div class="file-category">
+      <h2>📚 文档资料</h2>
+      <div class="file-list" id="docsList"></div>
+    </div>
+
+    <div class="file-category">
+      <h2>🎮 MOD模组</h2>
+      <div class="file-list" id="modsList"></div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
