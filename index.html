@@ -41,13 +41,17 @@
   </main>
 
   <script src="app.js"></script>
-    <footer class="site-footer">
-      <p>© LinyuGameStudio 2024-2025 | 版本 V14 | 基于GitHub Pages构建 | 已添加文件 ： 3个
-        <a href="https://github.com/sergypMC/xiaoju_download_web/" class="repo-link">GitHub仓库</a>
-      </p>
-    </footer>
+  <footer class="site-footer">
+    <p>© LinyuGameStudio 2024-2025 | 版本 V14 | 基于GitHub Pages构建 | 已添加文件 ： <span id="fileCount">0</span>个
+      <a href="https://github.com/sergypMC/xiaoju_download_web/" class="repo-link">GitHub仓库</a>
+    </p>
+  </footer>
+
+  <script>
+    // 自动更新文件数量
+    if (typeof downloads !== 'undefined') {
+      document.getElementById('fileCount').textContent = downloads.length;
+    }
+  </script>
 </body>
 </html>
-
-
-
