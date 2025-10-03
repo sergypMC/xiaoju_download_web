@@ -16,6 +16,14 @@ const downloads = [
     direct: 'https://download.zoho.com.cn/v1/workdrive/download/f0nwcf4ae18dfbb37428199784e70efae6d53?x-cli-msg=%7B%22isFileOwner%22%3Atrue%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
   },  // 修复：添加逗号分隔数组元素
   {
+    id: 'modpack-003',
+    name: '小橘の奇奇怪怪MC整合包V1',
+    size: '957 KB (980,564 字节)',
+    category: 'modpack',
+    netdisk: 'https://workdrive.zohopublic.com.cn/external/0bb6201db52fe662410816a17d43a5eacf5b462f833fc20ebd10c0f71d785e66/download',
+    direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwcab3eab3071af47d589985d475039ebac?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTORz-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
+  }
+  {
     id: 'tools-001',
     name: '小橘のCS启动器',
     size: '36.0 KB (36,864 字节)',
