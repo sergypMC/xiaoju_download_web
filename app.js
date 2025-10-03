@@ -1,4 +1,3 @@
-// 初始化下载项数据
 const downloads = [
   {
     id: 'modpack-001',
@@ -15,8 +14,7 @@ const downloads = [
     category: 'modpack',
     netdisk: 'https://workdrive.zoho.com.cn/file/f0nwcf4ae18dfbb37428199784e70efae6d53',
     direct: 'https://download.zoho.com.cn/v1/workdrive/download/f0nwcf4ae18dfbb37428199784e70efae6d53?x-cli-msg=%7B%22isFileOwner%22%3Atrue%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
-  }
-
+  },  // 修复：添加逗号分隔数组元素
   {
     id: 'tools-001',
     name: '小橘のCS启动器',
@@ -26,6 +24,7 @@ const downloads = [
     direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwc775dfe811fb942198bc829461c7a9d7a?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwB-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
   }
 ];
+
 
 // 初始化文件列表
 function initFileList() {
@@ -46,34 +45,32 @@ function initFileList() {
       <div class="action-menu">
         <button onclick="handleAction('${file.netdisk}', 'netdisk')">网盘下载</button>
         <button onclick="handleAction('${file.direct}', 'direct')">直接下载</button>
-        <button onclick="handleAction('${file.doc}', 'doc')">使用文档</button>
+        <button onclick="handleAction('${file.doc || ''}', 'doc')">使用文档</button>  <!-- 修复：处理doc属性可能不存在的情况 -->
       </div>
     `;
-    card.dataset.fileId = file.id; // 正确绑定文件ID到DOM元素
-    // 删除循环内重复的containers定义
+    card.dataset.fileId = file.id;
     (containers[file.category] || containers.docs).appendChild(card);
   });
 }
 
 // 实现搜索功能
-// 修改搜索逻辑
 function setupSearch() {
   const searchInput = document.getElementById('searchInput');
   const searchMode = document.getElementById('searchMode');
+  
+  if (!searchInput || !searchMode) {  // 修复：避免DOM元素不存在导致的报错
+    console.warn('搜索相关元素未找到，搜索功能已禁用');
+    return;
+  }
   
   searchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase();
     const isIdSearch = searchMode.checked;
     
-    // 修改搜索逻辑
-    console.log('当前搜索模式:', isIdSearch ? 'ID' : '名称');
     document.querySelectorAll('.file-card').forEach(card => {
-      // 修正console.log顺序
-      console.log('文件ID:', card.dataset.fileId);
       const fileId = card.dataset.fileId.toLowerCase();
-      const fileName = card.querySelector('.file-name').textContent.toLowerCase();
+      const fileName = card.querySelector('.file-name')?.textContent.toLowerCase() || '';  // 修复：处理可能不存在的元素
       const match = isIdSearch ? fileId.includes(query) : fileName.includes(query);
-      console.log('匹配结果:', match);
       card.style.display = match ? '' : 'none';
     });
   });
@@ -88,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleAction(url, type) {
   const actions = {
-    'netdisk': () => window.open(url),
-    'direct': () => location.href = url,
+    'netdisk': () => url && window.open(url),  // 修复：避免空链接导致的错误
+    'direct': () => url && (location.href = url),
     'doc': () => window.open(url || 'docs/default.html')
   };
   actions[type]?.();
