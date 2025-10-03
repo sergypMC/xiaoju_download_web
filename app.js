@@ -23,14 +23,14 @@ const downloads = [
     netdisk: 'https://workdrive.zohopublic.com.cn/external/0bb6201db52fe662410816a17d43a5eacf5b462f833fc20ebd10c0f71d785e66/download',
     direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwcab3eab3071af47d589985d475039ebac?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTORz-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
   }
-  {
+  ,{
     id: 'tools-001',
     name: '小橘のCS启动器',
     size: '36.0 KB (36,864 字节)',
     category: 'tools',
     netdisk: 'https://workdrive.zohopublic.com.cn/external/270108d2777adab2808a792c43d3430d72ef7a35db2b91871b9f603d205c4d16/download',
     direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwc775dfe811fb942198bc829461c7a9d7a?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwB-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
-  }
+  },
 ];
 
 
