@@ -4,7 +4,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>小橘の下载中心</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 基础样式重置与全局设置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    /* 头部样式 */
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px 40px;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      color: #ff7f50;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    #searchInput {
+      flex: 1;
+      max-width: 500px;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    #searchInput:focus {
+      border-color: #ff7f50;
+    }
+
+    .search-mode {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* 主体内容样式 */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .file-category {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+    .file-category h2 {
+      color: #333;
+      font-size: 18px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .file-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+    }
+
+    .file-card {
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: box-shadow 0.3s;
+    }
+
+    .file-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .file-info .file-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .file-info .file-size {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .action-menu {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .action-menu button {
+      flex: 1;
+      padding: 8px 0;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .action-menu button:nth-child(1) {
+      background-color: #4285f4;
+      color: #fff;
+    }
+
+    .action-menu button:nth-child(2) {
+      background-color: #34a853;
+      color: #fff;
+    }
+
+    .action-menu button:nth-child(3) {
+      background-color: #fbbc05;
+      color: #fff;
+    }
+
+    .action-menu button:hover {
+      opacity: 0.9;
+    }
+
+    /* 页脚样式 */
+    .site-footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .repo-link {
+      color: #ff7f50;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .repo-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -40,7 +212,6 @@
     </div>
   </main>
 
-  <script src="app.js"></script>
   <footer class="site-footer">
     <p>© LinyuGameStudio 2024-2025 | 版本 V15 | 基于GitHub Pages构建 | 已添加文件 ： <span id="fileCount">0</span>个
       <a href="https://github.com/sergypMC/xiaoju_download_web/" class="repo-link">GitHub仓库</a>
@@ -48,11 +219,117 @@
   </footer>
 
   <script>
-    // 自动更新文件数量
-    if (typeof downloads !== 'undefined') {
-      document.getElementById('fileCount').textContent = downloads.length;
+    // 文件数据列表
+    const downloads = [
+      {
+        id: 'modpack-001',
+        name: '小橘の养老生存整合包',
+        size: '36.0 KB (36,864 字节)',
+        category: 'modpack',
+        netdisk: 'https://workdrive.zoho.com.cn/file/f0nwc3c0c27b8fff04ff58869f7dacac83222',
+        direct: 'https://download.zoho.com.cn/v1/workdrive/download/f0nwc3c0c27b8fff04ff58869f7dacac83222?x-cli-msg=%7B%22isFileOwner%22%3Atrue%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
+      },
+      {
+        id: 'modpack-002',
+        name: '小橘の海豹偷狗队枪械整合包',
+        size: '112 MB (117,598,962 字节)',
+        category: 'modpack',
+        netdisk: 'https://workdrive.zoho.com.cn/file/f0nwcf4ae18dfbb37428199784e70efae6d53',
+        direct: 'https://download.zoho.com.cn/v1/workdrive/download/f0nwcf4ae18dfbb37428199784e70efae6d53?x-cli-msg=%7B%22isFileOwner%22%3Atrue%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
+      },
+      {
+        id: 'modpack-003',
+        name: '小橘の奇奇怪怪MC整合包V1',
+        size: '957 KB (980,564 字节)',
+        category: 'modpack',
+        netdisk: 'https://workdrive.zohopublic.com.cn/external/0bb6201db52fe662410816a17d43a5eacf5b462f833fc20ebd10c0f71d785e66/download',
+        direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwcab3eab3071af47d589985d475039ebac?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTORz-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
+      },
+      {
+        id: 'tools-001',
+        name: '小橘のCS启动器',
+        size: '36.0 KB (36,864 字节)',
+        category: 'tools',
+        netdisk: 'https://workdrive.zohopublic.com.cn/external/270108d2777adab2808a792c43d3430d72ef7a35db2b91871b9f603d205c4d16/download',
+        direct: 'https://files.zohopublic.com.cn/public/workdrive-public/download/f0nwc775dfe811fb942198bc829461c7a9d7a?x-cli-msg=%7B%22linkId%22%3A%221HPLRIHTMwB-36YKM%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D'
+      }
+    ];
+
+    // 初始化文件列表
+    function initFileList() {
+      const containers = {
+        'tools': document.getElementById('toolsList'),
+        'docs': document.getElementById('docsList'),
+        'modpack': document.getElementById('modpackList'),
+        'mods': document.getElementById('modsList')
+      };
+
+      downloads.forEach(file => {
+        const card = document.createElement('div');
+        card.className = 'file-card';
+        card.innerHTML = `
+          <div class="file-info">
+            <div class="file-name">${file.name}</div>
+            <div class="file-size">${file.size}</div>
+          </div>
+          <div class="action-menu">
+            <button onclick="handleAction('${file.netdisk}', 'netdisk')">网盘下载</button>
+            <button onclick="handleAction('${file.direct}', 'direct')">直接下载</button>
+            <button onclick="handleAction('${file.doc || ''}', 'doc')">使用文档</button>
+          </div>
+        `;
+        card.dataset.fileId = file.id;
+        // 若分类容器不存在，默认放入文档资料
+        (containers[file.category] || containers.docs).appendChild(card);
+      });
     }
+
+    // 实现搜索功能
+    function setupSearch() {
+      const searchInput = document.getElementById('searchInput');
+      const searchMode = document.getElementById('searchMode');
+      
+      if (!searchInput || !searchMode) {
+        console.warn('搜索相关元素未找到，搜索功能已禁用');
+        return;
+      }
+      
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const isIdSearch = searchMode.checked;
+        
+        document.querySelectorAll('.file-card').forEach(card => {
+          const fileId = card.dataset.fileId.toLowerCase();
+          const fileName = card.querySelector('.file-name')?.textContent.toLowerCase() || '';
+          const match = isIdSearch ? fileId.includes(query) : fileName.includes(query);
+          card.style.display = match ? 'flex' : 'none';
+        });
+      });
+    }
+
+    // 处理下载与文档打开操作
+    function handleAction(url, type) {
+      const actions = {
+        'netdisk': () => url && window.open(url, '_blank'),
+        'direct': () => url && (location.href = url),
+        'doc': () => {
+          if (url) {
+            window.open(url, '_blank');
+          } else {
+            alert('当前文件暂无使用文档');
+          }
+        }
+      };
+      actions[type]?.();
+    }
+
+    // 页面加载初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      initFileList();
+      setupSearch();
+      // 更新文件数量
+      document.getElementById('fileCount').textContent = downloads.length;
+    });
   </script>
 </body>
 </html>
-
